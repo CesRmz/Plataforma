@@ -55,7 +55,7 @@ include_once("../../includes/funciones_auxiliares.php");
 
         <div id="resumen">
             <div>TOTAL </div>
-            <input type="text" id="totalVal" value="200" readonly />
+            <input type="text" id="totalVal" value="0" readonly />
         </div>
 
         <div id="tabla" style="display: none;">
