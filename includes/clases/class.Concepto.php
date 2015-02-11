@@ -50,4 +50,13 @@ class Concepto
 
         return true;
     }
+
+    function getPagos(){
+        $query = "SELECT DATE_FORMAT(cuentas_pago.fecha,'%e / %m / %Y') AS 'Fecha de Pago', cuentas_pago.monto as 'Monto',persona.nombres as 'Usuario', cuentas_cuenta.id_cuenta 'No. Cuenta', cuentas_concepto.concepto as 'Concepto' FROM cuentas_pago
+			JOIN  cuentas_cuenta on cuentas_cuenta.id_cuenta = cuentas_pago.id_cuenta
+            JOIN  cuentas_concepto on cuentas_concepto.id_concepto = cuentas_cuenta.id_concepto
+            JOIN  persona on cuentas_pago.id_usuario = persona.id_persona
+            WHERE cuentas_concepto.id_concepto = $this->id_concepto ";
+        return Database::select($query);
+    }
 }
